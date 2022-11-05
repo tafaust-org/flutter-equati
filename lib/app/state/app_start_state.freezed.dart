@@ -26,10 +26,10 @@ mixin _$AppStartState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? internetUnAvailable,
-    TResult Function()? authenticated,
+    TResult? Function()? initial,
+    TResult? Function()? unauthenticated,
+    TResult? Function()? internetUnAvailable,
+    TResult? Function()? authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$AppStartState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(_InternetUnAvailable value)? internetUnAvailable,
-    TResult Function(AppAuthenticated value)? authenticated,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(_InternetUnAvailable value)? internetUnAvailable,
+    TResult? Function(AppAuthenticated value)? authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,17 +72,18 @@ mixin _$AppStartState {
 abstract class $AppStartStateCopyWith<$Res> {
   factory $AppStartStateCopyWith(
           AppStartState value, $Res Function(AppStartState) then) =
-      _$AppStartStateCopyWithImpl<$Res>;
+      _$AppStartStateCopyWithImpl<$Res, AppStartState>;
 }
 
 /// @nodoc
-class _$AppStartStateCopyWithImpl<$Res>
+class _$AppStartStateCopyWithImpl<$Res, $Val extends AppStartState>
     implements $AppStartStateCopyWith<$Res> {
   _$AppStartStateCopyWithImpl(this._value, this._then);
 
-  final AppStartState _value;
   // ignore: unused_field
-  final $Res Function(AppStartState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -93,13 +94,11 @@ abstract class _$$_InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$AppStartStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$AppStartStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
-
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -135,10 +134,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? internetUnAvailable,
-    TResult Function()? authenticated,
+    TResult? Function()? initial,
+    TResult? Function()? unauthenticated,
+    TResult? Function()? internetUnAvailable,
+    TResult? Function()? authenticated,
   }) {
     return initial?.call();
   }
@@ -172,10 +171,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(_InternetUnAvailable value)? internetUnAvailable,
-    TResult Function(AppAuthenticated value)? authenticated,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(_InternetUnAvailable value)? internetUnAvailable,
+    TResult? Function(AppAuthenticated value)? authenticated,
   }) {
     return initial?.call(this);
   }
@@ -209,14 +208,11 @@ abstract class _$$UnauthenticatedCopyWith<$Res> {
 
 /// @nodoc
 class __$$UnauthenticatedCopyWithImpl<$Res>
-    extends _$AppStartStateCopyWithImpl<$Res>
+    extends _$AppStartStateCopyWithImpl<$Res, _$Unauthenticated>
     implements _$$UnauthenticatedCopyWith<$Res> {
   __$$UnauthenticatedCopyWithImpl(
       _$Unauthenticated _value, $Res Function(_$Unauthenticated) _then)
-      : super(_value, (v) => _then(v as _$Unauthenticated));
-
-  @override
-  _$Unauthenticated get _value => super._value as _$Unauthenticated;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -252,10 +248,10 @@ class _$Unauthenticated implements Unauthenticated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? internetUnAvailable,
-    TResult Function()? authenticated,
+    TResult? Function()? initial,
+    TResult? Function()? unauthenticated,
+    TResult? Function()? internetUnAvailable,
+    TResult? Function()? authenticated,
   }) {
     return unauthenticated?.call();
   }
@@ -289,10 +285,10 @@ class _$Unauthenticated implements Unauthenticated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(_InternetUnAvailable value)? internetUnAvailable,
-    TResult Function(AppAuthenticated value)? authenticated,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(_InternetUnAvailable value)? internetUnAvailable,
+    TResult? Function(AppAuthenticated value)? authenticated,
   }) {
     return unauthenticated?.call(this);
   }
@@ -326,14 +322,11 @@ abstract class _$$_InternetUnAvailableCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InternetUnAvailableCopyWithImpl<$Res>
-    extends _$AppStartStateCopyWithImpl<$Res>
+    extends _$AppStartStateCopyWithImpl<$Res, _$_InternetUnAvailable>
     implements _$$_InternetUnAvailableCopyWith<$Res> {
   __$$_InternetUnAvailableCopyWithImpl(_$_InternetUnAvailable _value,
       $Res Function(_$_InternetUnAvailable) _then)
-      : super(_value, (v) => _then(v as _$_InternetUnAvailable));
-
-  @override
-  _$_InternetUnAvailable get _value => super._value as _$_InternetUnAvailable;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -369,10 +362,10 @@ class _$_InternetUnAvailable implements _InternetUnAvailable {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? internetUnAvailable,
-    TResult Function()? authenticated,
+    TResult? Function()? initial,
+    TResult? Function()? unauthenticated,
+    TResult? Function()? internetUnAvailable,
+    TResult? Function()? authenticated,
   }) {
     return internetUnAvailable?.call();
   }
@@ -406,10 +399,10 @@ class _$_InternetUnAvailable implements _InternetUnAvailable {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(_InternetUnAvailable value)? internetUnAvailable,
-    TResult Function(AppAuthenticated value)? authenticated,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(_InternetUnAvailable value)? internetUnAvailable,
+    TResult? Function(AppAuthenticated value)? authenticated,
   }) {
     return internetUnAvailable?.call(this);
   }
@@ -443,14 +436,11 @@ abstract class _$$AppAuthenticatedCopyWith<$Res> {
 
 /// @nodoc
 class __$$AppAuthenticatedCopyWithImpl<$Res>
-    extends _$AppStartStateCopyWithImpl<$Res>
+    extends _$AppStartStateCopyWithImpl<$Res, _$AppAuthenticated>
     implements _$$AppAuthenticatedCopyWith<$Res> {
   __$$AppAuthenticatedCopyWithImpl(
       _$AppAuthenticated _value, $Res Function(_$AppAuthenticated) _then)
-      : super(_value, (v) => _then(v as _$AppAuthenticated));
-
-  @override
-  _$AppAuthenticated get _value => super._value as _$AppAuthenticated;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -486,10 +476,10 @@ class _$AppAuthenticated implements AppAuthenticated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? unauthenticated,
-    TResult Function()? internetUnAvailable,
-    TResult Function()? authenticated,
+    TResult? Function()? initial,
+    TResult? Function()? unauthenticated,
+    TResult? Function()? internetUnAvailable,
+    TResult? Function()? authenticated,
   }) {
     return authenticated?.call();
   }
@@ -523,10 +513,10 @@ class _$AppAuthenticated implements AppAuthenticated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(Unauthenticated value)? unauthenticated,
-    TResult Function(_InternetUnAvailable value)? internetUnAvailable,
-    TResult Function(AppAuthenticated value)? authenticated,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(_InternetUnAvailable value)? internetUnAvailable,
+    TResult? Function(AppAuthenticated value)? authenticated,
   }) {
     return authenticated?.call(this);
   }

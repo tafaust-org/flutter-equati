@@ -16,7 +16,7 @@ final tokenRepositoryProvider = Provider<TokenRepository>((ref) {
 });
 
 class TokenRepository implements TokenRepositoryProtocol {
-  TokenRepository(this._ref) {}
+  TokenRepository(this._ref);
 
   late final PlatformType _platform = _ref.read(platformTypeProvider);
   final Ref _ref;

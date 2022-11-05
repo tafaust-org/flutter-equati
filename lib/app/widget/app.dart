@@ -6,7 +6,7 @@ import 'package:flutter_boilerplate/shared/route/router.gr.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 class App extends StatelessWidget {
-  App({Key? key}) : super(key: key);
+  App({super.key});
 
   final _appRouter = AppRouter();
 

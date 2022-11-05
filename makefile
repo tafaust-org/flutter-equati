@@ -60,25 +60,25 @@ run_dev_mobile: ## Runs the mobile application in dev
 	@echo "╠ Running the app"
 	@flutter run --flavor development -t lib/main_development.dart
 
-run_stg_mobile: ## Runs the mobile application in dev
+run_stg_mobile: ## Runs the mobile application in staging
 	@echo "╠ Running the app"
 	@flutter run --flavor staging -t lib/main_staging.dart
 
-run_prd_mobile: ## Runs the mobile application in dev
+run_prd_mobile: ## Runs the mobile application in prod
 	@echo "╠ Running the app"
 	@flutter run --flavor production -t lib/main_production.dart
 
-build_apk_dev: ## Runs the mobile application in dev
+build_apk_dev: ## Builds the mobile application for dev
 	@flutter clean
 	@flutter pub get
 	@flutter build apk --flavor development -t lib/main_development.dart
 
-build_apk_stg: ## Runs the mobile application in staging
+build_apk_stg: ## Builds the mobile application for staging
 	@flutter clean
 	@flutter pub get
 	@flutter build apk --flavor staging -t lib/main_staging.dart
 
-build_apk_prod: ## Runs the mobile application in prod
+build_apk_prod: ## Builds the mobile application for prod
 	@flutter clean
 	@flutter pub get
 	@flutter build apk --flavor production -t lib/main_production.dart

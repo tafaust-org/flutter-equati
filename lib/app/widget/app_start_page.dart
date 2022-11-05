@@ -16,7 +16,7 @@ class AppStartPage extends ConsumerWidget {
     return state.maybeWhen(
       initial: () => const LoadingWidget(),
       authenticated: () => const HomePage(),
-      unauthenticated: () => SignInPage(),
+      unauthenticated: SignInPage.new,
       internetUnAvailable: () => const ConnectionUnavailableWidget(),
       orElse: () => const LoadingWidget(),
     );

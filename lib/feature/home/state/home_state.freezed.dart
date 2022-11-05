@@ -24,8 +24,8 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? loggedOut,
+    TResult? Function()? loading,
+    TResult? Function()? loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoggedOut value)? loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,16 +59,18 @@ mixin _$HomeState {
 /// @nodoc
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
-      _$HomeStateCopyWithImpl<$Res>;
+      _$HomeStateCopyWithImpl<$Res, HomeState>;
 }
 
 /// @nodoc
-class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
+class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
+    implements $HomeStateCopyWith<$Res> {
   _$HomeStateCopyWithImpl(this._value, this._then);
 
-  final HomeState _value;
   // ignore: unused_field
-  final $Res Function(HomeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -79,13 +81,11 @@ abstract class _$$_LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, (v) => _then(v as _$_Loading));
-
-  @override
-  _$_Loading get _value => super._value as _$_Loading;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -119,8 +119,8 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? loggedOut,
+    TResult? Function()? loading,
+    TResult? Function()? loggedOut,
   }) {
     return loading?.call();
   }
@@ -150,8 +150,8 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoggedOut value)? loggedOut,
   }) {
     return loading?.call(this);
   }
@@ -182,14 +182,12 @@ abstract class _$$_LoggedOutCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoggedOutCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+class __$$_LoggedOutCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$_LoggedOut>
     implements _$$_LoggedOutCopyWith<$Res> {
   __$$_LoggedOutCopyWithImpl(
       _$_LoggedOut _value, $Res Function(_$_LoggedOut) _then)
-      : super(_value, (v) => _then(v as _$_LoggedOut));
-
-  @override
-  _$_LoggedOut get _value => super._value as _$_LoggedOut;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -223,8 +221,8 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function()? loggedOut,
+    TResult? Function()? loading,
+    TResult? Function()? loggedOut,
   }) {
     return loggedOut?.call();
   }
@@ -254,8 +252,8 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_LoggedOut value)? loggedOut,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoggedOut value)? loggedOut,
   }) {
     return loggedOut?.call(this);
   }

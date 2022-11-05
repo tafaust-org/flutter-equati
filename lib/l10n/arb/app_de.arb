@@ -1,0 +1,15 @@
+{
+    "@@locale": "de",
+    "counterAppBarTitle": "Zähler",
+    "@counterAppBarTitle": {
+        "description": "Text welcher in der AppBar von der Zählerseite angezeit wird"
+    },
+    "sign_in" : "Anmeldung",
+    "sign_up" : "Registrierung",
+    "already_user" : "Diesen Nutzer gibt es bereits",
+    "new_user" : "Haben Sie noch keinen Nutzer?",
+    "password_hint": "Passwort",
+    "email_hint": "E-Mail",
+    "name_hint": "Voller Name",
+    "books" : "Bücher"
+}
