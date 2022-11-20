@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'books_state.dart';
+part of 'games_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,25 +15,25 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$BooksState {
+mixin _$GamesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Book> books) booksLoaded,
+    required TResult Function(List<Game> games) gamesLoaded,
     required TResult Function(AppException error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Book> books)? booksLoaded,
+    TResult? Function(List<Game> games)? gamesLoaded,
     TResult? Function(AppException error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Book> books)? booksLoaded,
+    TResult Function(List<Game> games)? gamesLoaded,
     TResult Function(AppException error)? error,
     required TResult orElse(),
   }) =>
@@ -41,21 +41,21 @@ mixin _$BooksState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) booksLoaded,
+    required TResult Function(_Loaded value) gamesLoaded,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? booksLoaded,
+    TResult? Function(_Loaded value)? gamesLoaded,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? booksLoaded,
+    TResult Function(_Loaded value)? gamesLoaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -63,16 +63,16 @@ mixin _$BooksState {
 }
 
 /// @nodoc
-abstract class $BooksStateCopyWith<$Res> {
-  factory $BooksStateCopyWith(
-          BooksState value, $Res Function(BooksState) then) =
-      _$BooksStateCopyWithImpl<$Res, BooksState>;
+abstract class $GamesStateCopyWith<$Res> {
+  factory $GamesStateCopyWith(
+          GamesState value, $Res Function(GamesState) then) =
+      _$GamesStateCopyWithImpl<$Res, GamesState>;
 }
 
 /// @nodoc
-class _$BooksStateCopyWithImpl<$Res, $Val extends BooksState>
-    implements $BooksStateCopyWith<$Res> {
-  _$BooksStateCopyWithImpl(this._value, this._then);
+class _$GamesStateCopyWithImpl<$Res, $Val extends GamesState>
+    implements $GamesStateCopyWith<$Res> {
+  _$GamesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,7 +89,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$BooksStateCopyWithImpl<$Res, _$_Loading>
+    extends _$GamesStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
@@ -102,7 +102,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'BooksState.loading()';
+    return 'GamesState.loading()';
   }
 
   @override
@@ -118,7 +118,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Book> books) booksLoaded,
+    required TResult Function(List<Game> games) gamesLoaded,
     required TResult Function(AppException error) error,
   }) {
     return loading();
@@ -128,7 +128,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Book> books)? booksLoaded,
+    TResult? Function(List<Game> games)? gamesLoaded,
     TResult? Function(AppException error)? error,
   }) {
     return loading?.call();
@@ -138,7 +138,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Book> books)? booksLoaded,
+    TResult Function(List<Game> games)? gamesLoaded,
     TResult Function(AppException error)? error,
     required TResult orElse(),
   }) {
@@ -152,7 +152,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) booksLoaded,
+    required TResult Function(_Loaded value) gamesLoaded,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -162,7 +162,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? booksLoaded,
+    TResult? Function(_Loaded value)? gamesLoaded,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -172,7 +172,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? booksLoaded,
+    TResult Function(_Loaded value)? gamesLoaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -183,7 +183,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements BooksState {
+abstract class _Loading implements GamesState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -192,12 +192,12 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Book> books});
+  $Res call({List<Game> games});
 }
 
 /// @nodoc
 class __$$_LoadedCopyWithImpl<$Res>
-    extends _$BooksStateCopyWithImpl<$Res, _$_Loaded>
+    extends _$GamesStateCopyWithImpl<$Res, _$_Loaded>
     implements _$$_LoadedCopyWith<$Res> {
   __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
       : super(_value, _then);
@@ -205,13 +205,13 @@ class __$$_LoadedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? books = null,
+    Object? games = null,
   }) {
     return _then(_$_Loaded(
-      null == books
-          ? _value._books
-          : books // ignore: cast_nullable_to_non_nullable
-              as List<Book>,
+      null == games
+          ? _value._games
+          : games // ignore: cast_nullable_to_non_nullable
+              as List<Game>,
     ));
   }
 }
@@ -219,18 +219,18 @@ class __$$_LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(final List<Book> books) : _books = books;
+  const _$_Loaded(final List<Game> games) : _games = games;
 
-  final List<Book> _books;
+  final List<Game> _games;
   @override
-  List<Book> get books {
+  List<Game> get games {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_books);
+    return EqualUnmodifiableListView(_games);
   }
 
   @override
   String toString() {
-    return 'BooksState.booksLoaded(books: $books)';
+    return 'GamesState.gamesLoaded(games: $games)';
   }
 
   @override
@@ -238,12 +238,12 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
-            const DeepCollectionEquality().equals(other._books, _books));
+            const DeepCollectionEquality().equals(other._games, _games));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_books));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_games));
 
   @JsonKey(ignore: true)
   @override
@@ -255,32 +255,32 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Book> books) booksLoaded,
+    required TResult Function(List<Game> games) gamesLoaded,
     required TResult Function(AppException error) error,
   }) {
-    return booksLoaded(books);
+    return gamesLoaded(games);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Book> books)? booksLoaded,
+    TResult? Function(List<Game> games)? gamesLoaded,
     TResult? Function(AppException error)? error,
   }) {
-    return booksLoaded?.call(books);
+    return gamesLoaded?.call(games);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Book> books)? booksLoaded,
+    TResult Function(List<Game> games)? gamesLoaded,
     TResult Function(AppException error)? error,
     required TResult orElse(),
   }) {
-    if (booksLoaded != null) {
-      return booksLoaded(books);
+    if (gamesLoaded != null) {
+      return gamesLoaded(games);
     }
     return orElse();
   }
@@ -289,41 +289,41 @@ class _$_Loaded implements _Loaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) booksLoaded,
+    required TResult Function(_Loaded value) gamesLoaded,
     required TResult Function(_Error value) error,
   }) {
-    return booksLoaded(this);
+    return gamesLoaded(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? booksLoaded,
+    TResult? Function(_Loaded value)? gamesLoaded,
     TResult? Function(_Error value)? error,
   }) {
-    return booksLoaded?.call(this);
+    return gamesLoaded?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? booksLoaded,
+    TResult Function(_Loaded value)? gamesLoaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (booksLoaded != null) {
-      return booksLoaded(this);
+    if (gamesLoaded != null) {
+      return gamesLoaded(this);
     }
     return orElse();
   }
 }
 
-abstract class _Loaded implements BooksState {
-  const factory _Loaded(final List<Book> books) = _$_Loaded;
+abstract class _Loaded implements GamesState {
+  const factory _Loaded(final List<Game> games) = _$_Loaded;
 
-  List<Book> get books;
+  List<Game> get games;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -341,7 +341,7 @@ abstract class _$$_ErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorCopyWithImpl<$Res>
-    extends _$BooksStateCopyWithImpl<$Res, _$_Error>
+    extends _$GamesStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
@@ -378,7 +378,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'BooksState.error(error: $error)';
+    return 'GamesState.error(error: $error)';
   }
 
   @override
@@ -402,7 +402,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Book> books) booksLoaded,
+    required TResult Function(List<Game> games) gamesLoaded,
     required TResult Function(AppException error) error,
   }) {
     return error(this.error);
@@ -412,7 +412,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Book> books)? booksLoaded,
+    TResult? Function(List<Game> games)? gamesLoaded,
     TResult? Function(AppException error)? error,
   }) {
     return error?.call(this.error);
@@ -422,7 +422,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Book> books)? booksLoaded,
+    TResult Function(List<Game> games)? gamesLoaded,
     TResult Function(AppException error)? error,
     required TResult orElse(),
   }) {
@@ -436,7 +436,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Loaded value) booksLoaded,
+    required TResult Function(_Loaded value) gamesLoaded,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -446,7 +446,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Loaded value)? booksLoaded,
+    TResult? Function(_Loaded value)? gamesLoaded,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -456,7 +456,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Loaded value)? booksLoaded,
+    TResult Function(_Loaded value)? gamesLoaded,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -467,7 +467,7 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements BooksState {
+abstract class _Error implements GamesState {
   const factory _Error(final AppException error) = _$_Error;
 
   AppException get error;

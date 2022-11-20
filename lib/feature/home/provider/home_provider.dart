@@ -1,5 +1,5 @@
-import 'package:flutter_boilerplate/feature/home/state/home_state.dart';
-import 'package:flutter_boilerplate/shared/repository/token_repository.dart';
+import 'package:equati/feature/home/state/home_state.dart';
+import 'package:equati/shared/repository/token_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final homeProvider = StateNotifierProvider<HomeProvider, HomeState>((ref) {
@@ -7,7 +7,8 @@ final homeProvider = StateNotifierProvider<HomeProvider, HomeState>((ref) {
 });
 
 class HomeProvider extends StateNotifier<HomeState> {
-  HomeProvider(this._ref) : super(const HomeState.loading()) {}
+  HomeProvider(this._ref) : super(const HomeState.loading());
+
   final Ref _ref;
   late final TokenRepository _tokenRepository =
       _ref.read(tokenRepositoryProvider);

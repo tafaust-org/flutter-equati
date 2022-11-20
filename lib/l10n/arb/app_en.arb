@@ -11,5 +11,15 @@
     "password_hint": "Password",
     "email_hint": "Email",
     "name_hint": "Full Name",
-    "books" : "Books"
+    "game": "Game",
+
+    "startAppBarTitle": "Equati",
+    "appStartPage_button_play": "Play",
+    "appStartPage_button_settings": "Settings",
+    "gameSelectionPage_title": "Select a game mode",
+    "gameSelectionPage_button_dailyChallenge": "Daily Challenge",
+    "gameSelectionPage_button_timeTrial": "Time Trial",
+    "gameSelectionPage_button_custom": "Custom",
+
+    "settingsPage_example_l10n_text": "This is an example text in your selected language."
 }

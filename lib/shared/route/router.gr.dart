@@ -11,79 +11,112 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i5;
-import 'package:flutter/material.dart' as _i6;
-import 'package:flutter_boilerplate/app/widget/app_start_page.dart' as _i1;
-import 'package:flutter_boilerplate/feature/auth/widget/sign_in_page.dart'
-    as _i3;
-import 'package:flutter_boilerplate/feature/auth/widget/sign_up_page.dart'
-    as _i4;
-import 'package:flutter_boilerplate/feature/home/widget/home_page.dart' as _i2;
+import 'package:auto_route/auto_route.dart' as _i7;
+import 'package:flutter/material.dart' as _i8;
 
-class AppRouter extends _i5.RootStackRouter {
-  AppRouter([_i6.GlobalKey<_i6.NavigatorState>? navigatorKey])
+import '../../app/widget/app_start_page.dart' as _i1;
+import '../../feature/game/widget/daily_challenge_page.dart' as _i4;
+import '../../feature/game/widget/game_page.dart' as _i5;
+import '../../feature/game/widget/game_selection_page.dart' as _i3;
+import '../../feature/home/widget/home_page.dart' as _i2;
+import '../../feature/settings/widget/settings_page.dart' as _i6;
+
+class AppRouter extends _i7.RootStackRouter {
+  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i5.PageFactory> pagesMap = {
+  final Map<String, _i7.PageFactory> pagesMap = {
     AppStartRoute.name: (routeData) {
-      return _i5.AdaptivePage<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.AppStartPage(),
       );
     },
     HomeRoute.name: (routeData) {
-      return _i5.AdaptivePage<dynamic>(
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i2.HomePage(),
       );
     },
-    SignInRoute.name: (routeData) {
-      final args = routeData.argsAs<SignInRouteArgs>(
-          orElse: () => const SignInRouteArgs());
-      return _i5.AdaptivePage<dynamic>(
+    GameSelectionRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i3.SignInPage(key: args.key),
+        child: const _i3.GameSelectionPage(),
       );
     },
-    SignUpRoute.name: (routeData) {
-      final args = routeData.argsAs<SignUpRouteArgs>(
-          orElse: () => const SignUpRouteArgs());
-      return _i5.AdaptivePage<dynamic>(
+    DailyChallengeRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i4.SignUpPage(key: args.key),
+        child: const _i4.DailyChallengePage(),
+        fullscreenDialog: true,
+      );
+    },
+    GameRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<GameRouteArgs>(
+          orElse: () => GameRouteArgs(id: pathParams.getString('id')));
+      return _i7.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i5.GamePage(
+          key: args.key,
+          id: args.id,
+        ),
+        fullscreenDialog: true,
+      );
+    },
+    SettingsRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i6.SettingsPage(),
       );
     },
   };
 
   @override
-  List<_i5.RouteConfig> get routes => [
-        _i5.RouteConfig(
+  List<_i7.RouteConfig> get routes => [
+        _i7.RouteConfig(
           AppStartRoute.name,
           path: '/',
-        ),
-        _i5.RouteConfig(
-          HomeRoute.name,
-          path: '/home',
-        ),
-        _i5.RouteConfig(
-          SignInRoute.name,
-          path: '/signIn',
-        ),
-        _i5.RouteConfig(
-          SignUpRoute.name,
-          path: '/signUp',
-        ),
+          children: [
+            _i7.RouteConfig(
+              HomeRoute.name,
+              path: '',
+              parent: AppStartRoute.name,
+            ),
+            _i7.RouteConfig(
+              GameSelectionRoute.name,
+              path: 'selection',
+              parent: AppStartRoute.name,
+            ),
+            _i7.RouteConfig(
+              DailyChallengeRoute.name,
+              path: 'daily_challenge',
+              parent: AppStartRoute.name,
+            ),
+            _i7.RouteConfig(
+              GameRoute.name,
+              path: ':id',
+              parent: AppStartRoute.name,
+            ),
+            _i7.RouteConfig(
+              SettingsRoute.name,
+              path: 'settings',
+              parent: AppStartRoute.name,
+            ),
+          ],
+        )
       ];
 }
 
 /// generated route for
 /// [_i1.AppStartPage]
-class AppStartRoute extends _i5.PageRouteInfo<void> {
-  const AppStartRoute()
+class AppStartRoute extends _i7.PageRouteInfo<void> {
+  const AppStartRoute({List<_i7.PageRouteInfo>? children})
       : super(
           AppStartRoute.name,
           path: '/',
+          initialChildren: children,
         );
 
   static const String name = 'AppStartRoute';
@@ -91,60 +124,83 @@ class AppStartRoute extends _i5.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.HomePage]
-class HomeRoute extends _i5.PageRouteInfo<void> {
+class HomeRoute extends _i7.PageRouteInfo<void> {
   const HomeRoute()
       : super(
           HomeRoute.name,
-          path: '/home',
+          path: '',
         );
 
   static const String name = 'HomeRoute';
 }
 
 /// generated route for
-/// [_i3.SignInPage]
-class SignInRoute extends _i5.PageRouteInfo<SignInRouteArgs> {
-  SignInRoute({_i6.Key? key})
+/// [_i3.GameSelectionPage]
+class GameSelectionRoute extends _i7.PageRouteInfo<void> {
+  const GameSelectionRoute()
       : super(
-          SignInRoute.name,
-          path: '/signIn',
-          args: SignInRouteArgs(key: key),
+          GameSelectionRoute.name,
+          path: 'selection',
         );
 
-  static const String name = 'SignInRoute';
+  static const String name = 'GameSelectionRoute';
 }
 
-class SignInRouteArgs {
-  const SignInRouteArgs({this.key});
+/// generated route for
+/// [_i4.DailyChallengePage]
+class DailyChallengeRoute extends _i7.PageRouteInfo<void> {
+  const DailyChallengeRoute()
+      : super(
+          DailyChallengeRoute.name,
+          path: 'daily_challenge',
+        );
 
-  final _i6.Key? key;
+  static const String name = 'DailyChallengeRoute';
+}
+
+/// generated route for
+/// [_i5.GamePage]
+class GameRoute extends _i7.PageRouteInfo<GameRouteArgs> {
+  GameRoute({
+    _i8.Key? key,
+    required String id,
+  }) : super(
+          GameRoute.name,
+          path: ':id',
+          args: GameRouteArgs(
+            key: key,
+            id: id,
+          ),
+          rawPathParams: {'id': id},
+        );
+
+  static const String name = 'GameRoute';
+}
+
+class GameRouteArgs {
+  const GameRouteArgs({
+    this.key,
+    required this.id,
+  });
+
+  final _i8.Key? key;
+
+  final String id;
 
   @override
   String toString() {
-    return 'SignInRouteArgs{key: $key}';
+    return 'GameRouteArgs{key: $key, id: $id}';
   }
 }
 
 /// generated route for
-/// [_i4.SignUpPage]
-class SignUpRoute extends _i5.PageRouteInfo<SignUpRouteArgs> {
-  SignUpRoute({_i6.Key? key})
+/// [_i6.SettingsPage]
+class SettingsRoute extends _i7.PageRouteInfo<void> {
+  const SettingsRoute()
       : super(
-          SignUpRoute.name,
-          path: '/signUp',
-          args: SignUpRouteArgs(key: key),
+          SettingsRoute.name,
+          path: 'settings',
         );
 
-  static const String name = 'SignUpRoute';
-}
-
-class SignUpRouteArgs {
-  const SignUpRouteArgs({this.key});
-
-  final _i6.Key? key;
-
-  @override
-  String toString() {
-    return 'SignUpRouteArgs{key: $key}';
-  }
+  static const String name = 'SettingsRoute';
 }

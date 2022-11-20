@@ -11,5 +11,5 @@
     "password_hint": "Passwort",
     "email_hint": "E-Mail",
     "name_hint": "Voller Name",
-    "books" : "Bücher"
+    "game" : "Spiel"
 }

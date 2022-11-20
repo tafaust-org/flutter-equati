@@ -5,12 +5,15 @@ linter:
   rules:
     public_member_api_docs: false
     sort_constructors_first: false
+    always_use_package_imports: true
+    sort_unnamed_constructors_first: false
 analyzer:
   plugins:
     - dart_code_metrics
   errors:
     missing_required_param: error
     missing_return: warning
+    prefer_relative_imports: error
 
   exclude:
     - "**/*.g.dart"

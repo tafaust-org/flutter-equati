@@ -1,4 +1,4 @@
-name: flutter_boilerplate
+name: equati
 description: A simple boilerplate project
 version: 1.0.0+1
 publish_to: none
@@ -8,16 +8,18 @@ environment:
   flutter: ">=2.0.0"
 
 dependencies:
+  auto_route: 5.0.1
+  dio: ^4.0.6
+  dropdown_button2: ^1.8.9
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
   flutter_riverpod: ^2.0.2
-  auto_route: 5.0.1
   intl: ^0.17.0
-  meta: ^1.8.0
-  dio: ^4.0.6
   json_annotation: ^4.7.0
+  math_expressions: ^2.3.1
+  meta: ^1.8.0
   pretty_dio_logger: ^1.1.1
   flutter_secure_storage: 6.0.0
   google_fonts: ^3.0.1

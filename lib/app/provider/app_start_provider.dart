@@ -1,28 +1,32 @@
-import 'package:flutter_boilerplate/app/state/app_start_state.dart';
-import 'package:flutter_boilerplate/feature/auth/model/auth_state.dart';
-import 'package:flutter_boilerplate/feature/auth/provider/auth_provider.dart';
-import 'package:flutter_boilerplate/feature/home/provider/home_provider.dart';
-import 'package:flutter_boilerplate/feature/home/state/home_state.dart';
-import 'package:flutter_boilerplate/shared/repository/token_repository.dart';
+import 'package:equati/app/state/app_start_state.dart';
+import 'package:equati/feature/auth/model/auth_state.dart';
+import 'package:equati/feature/auth/provider/auth_provider.dart';
+import 'package:equati/feature/home/provider/home_provider.dart';
+import 'package:equati/feature/home/state/home_state.dart';
+import 'package:equati/shared/repository/token_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final appStartProvider =
-    StateNotifierProvider<AppStartNotifier, AppStartState>((ref) {
-  final loginState = ref.watch(authProvider);
-  final homeState = ref.watch(homeProvider);
+final appStartProvider = StateNotifierProvider<AppStartNotifier, AppStartState>(
+  (ref) {
+    final loginState = ref.watch(authProvider);
+    final homeState = ref.watch(homeProvider);
 
-  late AppStartState appStartState;
-  appStartState = loginState is AppAuthenticated
-      ? const AppStartState.authenticated()
-      : const AppStartState.initial();
+    late AppStartState appStartState;
+    appStartState = loginState is AppAuthenticated
+        ? const AppStartState.authenticated()
+        : const AppStartState.initial();
 
-  return AppStartNotifier(appStartState, ref, loginState, homeState);
-});
+    return AppStartNotifier(appStartState, ref, loginState, homeState);
+  },
+);
 
 class AppStartNotifier extends StateNotifier<AppStartState> {
   AppStartNotifier(
-      AppStartState appStartState, this._ref, this._authState, this._homeState)
-      : super(appStartState) {
+    super.appStartState,
+    this._ref,
+    this._authState,
+    this._homeState,
+  ) {
     _init();
   }
 
@@ -34,16 +38,18 @@ class AppStartNotifier extends StateNotifier<AppStartState> {
 
   Future<void> _init() async {
     _authState.maybeWhen(
-        loggedIn: () {
-          state = const AppStartState.authenticated();
-        },
-        orElse: () {});
+      loggedIn: () {
+        state = const AppStartState.authenticated();
+      },
+      orElse: () {},
+    );
 
     _homeState.maybeWhen(
-        loggedOut: () {
-          state = const AppStartState.unauthenticated();
-        },
-        orElse: () {});
+      loggedOut: () {
+        state = const AppStartState.unauthenticated();
+      },
+      orElse: () {},
+    );
 
     final token = await _tokenRepository.fetchToken();
     if (token != null) {

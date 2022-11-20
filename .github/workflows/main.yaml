@@ -1,4 +1,4 @@
-name: flutter_boilerplate
+name: equati
 
 on: [pull_request, push]
 

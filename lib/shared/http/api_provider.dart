@@ -1,15 +1,16 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:equati/shared/http/api_response.dart';
+import 'package:equati/shared/http/app_exception.dart';
+import 'package:equati/shared/http/interceptor/dio_connectivity_request_retrier.dart';
+import 'package:equati/shared/http/interceptor/retry_interceptor.dart';
+import 'package:equati/shared/repository/token_repository.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_boilerplate/shared/http/api_response.dart';
-import 'package:flutter_boilerplate/shared/http/app_exception.dart';
-import 'package:flutter_boilerplate/shared/http/interceptor/dio_connectivity_request_retrier.dart';
-import 'package:flutter_boilerplate/shared/http/interceptor/retry_interceptor.dart';
-import 'package:flutter_boilerplate/shared/repository/token_repository.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -50,6 +51,12 @@ class ApiProvider {
     if (dotenv.env['BASE_URL'] != null) {
       _baseUrl = dotenv.env['BASE_URL']!;
     }
+    if (dotenv.env['API_KEY'] != null) {
+      _apiKey = dotenv.env['API_KEY'];
+    }
+    if (dotenv.env['BASIC_HTTP_AUTH'] != null) {
+      _basicHttpAuth = dotenv.env['BASIC_HTTP_AUTH'];
+    }
   }
 
   final Ref _ref;
@@ -60,6 +67,8 @@ class ApiProvider {
       _ref.read(tokenRepositoryProvider);
 
   late String _baseUrl;
+  String? _apiKey;
+  String? _basicHttpAuth;
 
   Future<APIResponse> post(
     String path,
@@ -156,23 +165,18 @@ class ApiProvider {
     }
   }
 
-  Future<APIResponse> get(
+  Future<APIResponse<dynamic>> get(
     String path, {
     String? newBaseUrl,
-    String? token,
+    // String? token,
     Map<String, dynamic>? query,
     ContentType contentType = ContentType.json,
   }) async {
-    final connectivityResult = await (Connectivity().checkConnectivity());
+    final connectivityResult = await Connectivity().checkConnectivity();
     if (connectivityResult == ConnectivityResult.none) {
       return const APIResponse.error(AppException.connectivity());
     }
-    String url;
-    if (newBaseUrl != null) {
-      url = newBaseUrl + path;
-    } else {
-      url = this._baseUrl + path;
-    }
+    final url = newBaseUrl != null ? newBaseUrl + path : _baseUrl + path;
 
     var content = 'application/x-www-form-urlencoded';
 
@@ -185,10 +189,21 @@ class ApiProvider {
       'Content-Type': content,
     };
 
-    final _appToken = await _tokenRepository.fetchToken();
-    if (_appToken != null) {
-      headers['Authorization'] = 'Bearer ${_appToken}';
+    if (_apiKey != null) {
+      headers['X-API-KEY'] = _apiKey!;
     }
+    if (_basicHttpAuth != null) {
+      headers['Authorization'] = 'Basic ${base64.encode(
+        utf8.encode(_basicHttpAuth!),
+      )}';
+    }
+    // if (token != null) {
+    // } else {
+    //   final _appToken = await _tokenRepository.fetchToken();
+    //   if (_appToken != null) {
+    //     headers['Authorization'] = 'Bearer ${_appToken}';
+    //   }
+    // }
 
     try {
       final response = await _dio.get(
@@ -204,7 +219,7 @@ class ApiProvider {
       }
 
       if (response.statusCode! < 300) {
-        return APIResponse.success(response.data['data']);
+        return APIResponse.success(response.data);
       } else {
         if (response.statusCode! == 404) {
           return const APIResponse.error(AppException.connectivity());

@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/feature/auth/model/auth_state.dart';
-import 'package:flutter_boilerplate/feature/auth/provider/auth_provider.dart';
-import 'package:flutter_boilerplate/l10n/l10n.dart';
+import 'package:equati/feature/auth/model/auth_state.dart';
+import 'package:equati/feature/auth/provider/auth_provider.dart';
+import 'package:equati/l10n/l10n.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SignUpPage extends ConsumerWidget {

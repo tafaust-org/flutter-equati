@@ -1,6 +1,6 @@
-import 'package:flutter_boilerplate/shared/constants/store_key.dart';
-import 'package:flutter_boilerplate/shared/model/token.dart';
-import 'package:flutter_boilerplate/shared/util/platform_type.dart';
+import 'package:equati/shared/constants/store_key.dart';
+import 'package:equati/shared/model/token.dart';
+import 'package:equati/shared/util/platform_type.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -63,6 +63,7 @@ class TokenRepository implements TokenRepositoryProtocol {
     // if (_token != null) {
     //   return _token;
     // }
+    return const Token(token: 'abc');
 
     String? tokenValue;
 
