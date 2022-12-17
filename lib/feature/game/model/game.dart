@@ -20,6 +20,7 @@ class Game with _$Game {
     required List<double> source,
     required double target,
     required List<String> operations,
+    DateTime? dailyChallenge,
   }) = _Game;
 
   factory Game.fromJson(Map<String, dynamic> json) => _$GameFromJson(json);

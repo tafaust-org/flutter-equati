@@ -15,6 +15,9 @@ _$_Game _$$_GameFromJson(Map<String, dynamic> json) => _$_Game(
       operations: (json['operations'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
+      dailyChallenge: json['dailyChallenge'] == null
+          ? null
+          : DateTime.parse(json['dailyChallenge'] as String),
     );
 
 Map<String, dynamic> _$$_GameToJson(_$_Game instance) => <String, dynamic>{
@@ -22,4 +25,5 @@ Map<String, dynamic> _$$_GameToJson(_$_Game instance) => <String, dynamic>{
       'source': instance.source,
       'target': instance.target,
       'operations': instance.operations,
+      'dailyChallenge': instance.dailyChallenge?.toIso8601String(),
     };

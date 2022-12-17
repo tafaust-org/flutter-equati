@@ -8,6 +8,7 @@ import 'package:equati/shared/route/router.gr.dart';
 import 'package:equati/shared/widget/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 
 class GameSelectionPage extends ConsumerWidget {
   const GameSelectionPage({super.key});
@@ -108,16 +109,23 @@ class DecoratedGameList extends StatelessWidget {
       mainAxisSpacing: 5,
       crossAxisSpacing: 5,
       children: games
+          .where((game) => game.dailyChallenge == null)
+          .toList()
+          .toList()
           .asMap()
           .entries
-          .map<Widget>(
-            (entries) => DecoratedGridGameBox(
-              entries.value,
-              games.length - entries.key,
-              ref,
-            ),
+          .map(
+            (entries) {
+              return DecoratedGridGameBox(
+                entries.value,
+                entries.key + 1,
+                ref,
+              );
+            },
           )
-          .toList(growable: true),
+          .toList(growable: true)
+          .reversed
+          .toList(),
     );
   }
 }
@@ -131,6 +139,8 @@ class DecoratedGridGameBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context).languageCode;
+
     return InkWell(
       onTap: () {
         ref.read(singleGameProvider.notifier).fetchGameById(game.id);
@@ -147,7 +157,18 @@ class DecoratedGridGameBox extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text('Game $index'),
+            if (game.dailyChallenge != null)
+              Text(
+                'Daily Challenge ${DateFormat.yMd(locale).format(
+                  game.dailyChallenge!,
+                )}',
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                softWrap: true,
+                overflow: TextOverflow.fade,
+              )
+            else
+              Text('Game $index'),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: game.source

@@ -1,7 +1,7 @@
 import 'package:equati/feature/game/model/game.dart';
 import 'package:equati/feature/game/state/daily_challenge_state.dart';
-import 'package:equati/feature/game/state/single_game_state.dart';
 import 'package:equati/feature/game/state/games_state.dart';
+import 'package:equati/feature/game/state/single_game_state.dart';
 import 'package:equati/shared/http/api_provider.dart';
 import 'package:equati/shared/http/app_exception.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

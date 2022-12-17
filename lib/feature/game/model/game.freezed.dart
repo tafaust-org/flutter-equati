@@ -25,6 +25,7 @@ mixin _$Game {
   List<double> get source => throw _privateConstructorUsedError;
   double get target => throw _privateConstructorUsedError;
   List<String> get operations => throw _privateConstructorUsedError;
+  DateTime? get dailyChallenge => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +41,8 @@ abstract class $GameCopyWith<$Res> {
       {@JsonKey(name: 'gameId') String id,
       List<double> source,
       double target,
-      List<String> operations});
+      List<String> operations,
+      DateTime? dailyChallenge});
 }
 
 /// @nodoc
@@ -60,6 +62,7 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
     Object? source = null,
     Object? target = null,
     Object? operations = null,
+    Object? dailyChallenge = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -78,6 +81,10 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
           ? _value.operations
           : operations // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      dailyChallenge: freezed == dailyChallenge
+          ? _value.dailyChallenge
+          : dailyChallenge // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -92,7 +99,8 @@ abstract class _$$_GameCopyWith<$Res> implements $GameCopyWith<$Res> {
       {@JsonKey(name: 'gameId') String id,
       List<double> source,
       double target,
-      List<String> operations});
+      List<String> operations,
+      DateTime? dailyChallenge});
 }
 
 /// @nodoc
@@ -108,6 +116,7 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
     Object? source = null,
     Object? target = null,
     Object? operations = null,
+    Object? dailyChallenge = freezed,
   }) {
     return _then(_$_Game(
       id: null == id
@@ -126,6 +135,10 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
           ? _value._operations
           : operations // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      dailyChallenge: freezed == dailyChallenge
+          ? _value.dailyChallenge
+          : dailyChallenge // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -137,7 +150,8 @@ class _$_Game extends _Game {
       {@JsonKey(name: 'gameId') required this.id,
       required final List<double> source,
       required this.target,
-      required final List<String> operations})
+      required final List<String> operations,
+      this.dailyChallenge})
       : _source = source,
         _operations = operations,
         super._();
@@ -164,8 +178,11 @@ class _$_Game extends _Game {
   }
 
   @override
+  final DateTime? dailyChallenge;
+
+  @override
   String toString() {
-    return 'Game(id: $id, source: $source, target: $target, operations: $operations)';
+    return 'Game(id: $id, source: $source, target: $target, operations: $operations, dailyChallenge: $dailyChallenge)';
   }
 
   @override
@@ -177,7 +194,9 @@ class _$_Game extends _Game {
             const DeepCollectionEquality().equals(other._source, _source) &&
             (identical(other.target, target) || other.target == target) &&
             const DeepCollectionEquality()
-                .equals(other._operations, _operations));
+                .equals(other._operations, _operations) &&
+            (identical(other.dailyChallenge, dailyChallenge) ||
+                other.dailyChallenge == dailyChallenge));
   }
 
   @JsonKey(ignore: true)
@@ -187,7 +206,8 @@ class _$_Game extends _Game {
       id,
       const DeepCollectionEquality().hash(_source),
       target,
-      const DeepCollectionEquality().hash(_operations));
+      const DeepCollectionEquality().hash(_operations),
+      dailyChallenge);
 
   @JsonKey(ignore: true)
   @override
@@ -208,7 +228,8 @@ abstract class _Game extends Game {
       {@JsonKey(name: 'gameId') required final String id,
       required final List<double> source,
       required final double target,
-      required final List<String> operations}) = _$_Game;
+      required final List<String> operations,
+      final DateTime? dailyChallenge}) = _$_Game;
   const _Game._() : super._();
 
   factory _Game.fromJson(Map<String, dynamic> json) = _$_Game.fromJson;
@@ -222,6 +243,8 @@ abstract class _Game extends Game {
   double get target;
   @override
   List<String> get operations;
+  @override
+  DateTime? get dailyChallenge;
   @override
   @JsonKey(ignore: true)
   _$$_GameCopyWith<_$_Game> get copyWith => throw _privateConstructorUsedError;
